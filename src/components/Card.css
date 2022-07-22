@@ -1,0 +1,7 @@
+.job-details {
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+}
+
+.job-details p:nth-child(1) {
+  opacity: 0.8;
+}

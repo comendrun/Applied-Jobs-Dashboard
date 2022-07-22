@@ -16,15 +16,15 @@
 
 #root .App {
   width: 90%;
-  max-width: 500px;
+  max-width: 800px;
   margin: 2rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -32,13 +32,13 @@
   #root .App {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    max-width: 1100px;
-    height: 500px;
+    -ms-flex-align: center;
+    align-items: center;
+    max-width: 100%;
+    height: 700px;
     margin: auto;
   }
 }
@@ -52,8 +52,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   color: white;
   border-radius: 15px;
   overflow: hidden;
@@ -67,11 +67,11 @@
   display: flex;
   background-color: #5847eb;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   gap: 2rem;
   border-radius: 15px;
 }
@@ -98,13 +98,13 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   padding: 1.5rem 2rem;
 }
 
@@ -140,15 +140,15 @@
   .top-card .top-card-header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     padding-left: 2rem;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     -webkit-transition: opacity 0.3s ease-in;
     transition: opacity 0.3s ease-in;
   }
@@ -170,12 +170,12 @@
   .top-card .period ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     height: 100%;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
   }
   .top-card .period ul li {
     margin-right: auto;
@@ -190,23 +190,26 @@
 
 @media screen and (min-width: 1100px) {
   .cards-grid {
-    -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    -ms-grid-columns: (minmax(200px, 1fr)) [auto-fill];
+    grid-template-columns: repeat(auto-fill, minmax(100px, auto));
     width: 100%;
     height: 100%;
+    grid-gap: 10px;
+    grid-auto-rows: 400px;
+    grid-template-columns: repeat(2, minmax(100px, auto));
   }
 }
 
 .card {
   width: 100%;
-  height: 170px;
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   color: white;
   border-radius: 15px;
   overflow: hidden;
@@ -217,6 +220,7 @@
 }
 
 .card .body {
+  font-family: "Roboto", sans-serif;
   height: 75%;
   border-radius: 15px;
   background: #1c1f4a;
@@ -225,12 +229,12 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 1rem;
+  -ms-flex-pack: center;
+  justify-content: center;
+  /* gap: 1rem; */
   padding-inline: 2rem;
   -webkit-transition: opacity 0.3s ease-in;
   transition: opacity 0.3s ease-in;
@@ -243,15 +247,15 @@
 }
 
 .card .body .flex-col {
-  display: -webkit-box;
+  /* display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center; */
 }
 
 .card .body .category-placeholder h2 {
@@ -284,14 +288,14 @@
     height: 80%;
     padding-block: 2rem;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
   .card .hours-placeholder {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
   .card .hours-placeholder h1,
   .card .hours-placeholder p {
@@ -301,4 +305,3 @@
     font-size: 3rem;
   }
 }
-/*# sourceMappingURL=sass.css.map */
