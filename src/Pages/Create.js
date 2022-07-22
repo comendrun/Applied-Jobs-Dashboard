@@ -1,4 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import "./Create.css";
+
+import { useNavigate } from "react-router-dom";
+
+import { useFetch } from "../Hooks/useFetch";
 
 export default function Create() {
   const [title, setTitle] = useState("");
@@ -14,9 +20,27 @@ export default function Create() {
   const [status, setStatus] = useState("");
   const [jobDescription, setJobDescription] = useState("");
 
-  const formSubmitHandler = (e) => {
+  const [isFinished, setIsFinished] = useState(false);
+
+  const { postData, data, error } = useFetch(
+    "http://localhost:3000/jobs",
+    "POST"
+  );
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (data) {
+      setIsFinished(true);
+      setTimeout(() => {
+        navigate("/Applied-Jobs-Dashboard").then(setIsFinished(false));
+      }, 3000);
+    }
+  }, [data, navigate]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
+    postData({
       title,
       company,
       date,
@@ -28,16 +52,13 @@ export default function Create() {
       workCondition,
       note,
       status,
-      jobDescription
-    );
+      jobDescription,
+    });
   };
 
   return (
-    <div>
-      <form
-        onSubmit={formSubmitHandler}
-        className="text-white flex flex-col gap-2"
-      >
+    <div className="create-page ">
+      <form onSubmit={handleSubmit} className="create-form flex flex-col ">
         <label>
           <span className="mr-2">Job Title</span>
           <input
@@ -124,13 +145,13 @@ export default function Create() {
           />
         </label>
 
-        <label className="flex gap-5">
+        <label className="radio-inputs-label flex gap-5 flex-col desktop:flex-row items-start">
           <span className="mr-2">Is Remote option possible?</span>
           <div
-            className="flex  gap-4"
+            className="flex gap-1 w-full items-center flex-wrap justify-between "
             onChange={(e) => setWorkCondition(e.target.value)}
           >
-            <label>
+            <label className="">
               Remote{" "}
               <input
                 name="workCondition"
@@ -141,6 +162,7 @@ export default function Create() {
                 value="Remote"
               />
             </label>
+
             <label>
               {" "}
               Hybrid{" "}
@@ -178,21 +200,11 @@ export default function Create() {
           </div>
         </label>
 
-        <label>
-          <span className="mr-2">Note:</span>
-          <input
-            placeholder="Additional Notes"
-            type="text"
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-          />
-        </label>
-
-        <label className="flex gap-6">
+        <label className="radio-inputs-label flex gap-6 flex-col desktop:flex-row items-start">
           <span className="mr-2">status:</span>
 
           <div
-            className="flex  gap-4"
+            className="flex gap-5 w-max items-center flex-wrap justify-between"
             onChange={(e) => setStatus(e.target.value)}
           >
             <label>
@@ -230,6 +242,16 @@ export default function Create() {
         </label>
 
         <label>
+          <span className="mr-2">Note:</span>
+          <input
+            placeholder="Additional Notes"
+            type="text"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+          />
+        </label>
+
+        <label className="text-area-label flex flex-col justify-start items-start">
           <span className="mr-2">Job Description</span>
           <textarea
             placeholder="Ad summary"
@@ -241,10 +263,17 @@ export default function Create() {
           />
         </label>
 
-        <button className="border-2 py-2 px-5 w-max mx-auto hover:bg-white hover:text-black duration-150 ease-in rounded-[15px]">
+        <button className="border-2 py-2 px-5 w-max mx-auto bg-white hover:text-white hover:bg-transparent duration-150 ease-in rounded-[15px]">
           add to database
         </button>
       </form>
+      <div className={`finished-message ${!isFinished && "hidden"}`}>
+        <p className="green">
+          Your Recipe was added to your database. you can access it on your
+          homepage.
+        </p>
+        <p className="blue">We are redirecting you to your homepage now ...</p>
+      </div>
     </div>
   );
 }

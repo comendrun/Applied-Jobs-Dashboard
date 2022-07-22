@@ -16,7 +16,7 @@
 
 #root .App {
   width: 90%;
-  max-width: 800px;
+  max-width: 600px;
   margin: 2rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,6 +26,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 2rem;
+  /* overflow: auto; */
 }
 
 @media (min-width: 1100px) {
@@ -37,8 +38,8 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    max-width: 100%;
-    height: 700px;
+    max-width: max-content;
+    max-height: 800px;
     margin: auto;
   }
 }
