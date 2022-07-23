@@ -23,7 +23,7 @@ export default function Create() {
   const [isFinished, setIsFinished] = useState(false);
 
   const { postData, data, error } = useFetch(
-    "http://localhost:3000/jobs",
+    "https://my-job-board-data.herokuapp.com/jobs",
     "POST"
   );
 

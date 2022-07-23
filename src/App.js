@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import TopCard from "./components/TopCard";
 
-import jsonData from "./Data/data.json";
 import { nanoid } from "nanoid";
 import "./app.css";
 import { BrowserRouter, Link, NavLink, Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home";
 import Create from "./Pages/Create";
-import { useFetch } from "./Hooks/useFetch";
+import Job from "./Pages/Job";
 
 function App() {
   const [query, setQuery] = useState("weekly");
@@ -24,8 +23,8 @@ function App() {
         <BrowserRouter>
           <TopCard onClick={periodClickHandler} query={query} />
           <Routes>
-            <Route path="/Applied-Jobs-Dashboard" element={<Home />} />
-            <Route path="/Applied-Jobs-Dashboard/jobs/:id" />
+            <Route path="/Applied-Jobs-Dashboard/" element={<Home />} />
+            <Route path="/Applied-Jobs-Dashboard/jobs/:id" element={<Job />} />
             <Route path="/Applied-Jobs-Dashboard/create" element={<Create />} />
             <Route path="/Applied-Jobs-Dashboard/search" />
           </Routes>

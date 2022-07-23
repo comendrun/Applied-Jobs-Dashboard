@@ -74,6 +74,11 @@ export const styles = [
   },
 ];
 
+export const randomStyle = () => {
+  const randomNum = Math.floor(Math.random() * 6);
+  return styles[randomNum];
+};
+
 // $primaryLightRedWork: "hsl(15, 100%, 70%)",
 // $primarySoftBluePlay: "hsl(195, 74%, 62%)",
 // $primaryLightRedStudy: "hsl(348, 100%, 68%)",
