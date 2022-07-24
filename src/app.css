@@ -12,11 +12,12 @@
   min-height: 100vh;
   font-family: "Rubik", sans-serif;
   background-color: #0f1424;
+  overflow: auto;
 }
 
 #root .App {
   width: 90%;
-  max-width: 800px;
+  max-width: 600px;
   margin: 2rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,6 +27,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 2rem;
+  overflow: auto;
 }
 
 @media (min-width: 1100px) {
@@ -37,8 +39,8 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    max-width: 100%;
-    height: 700px;
+    max-width: max-content;
+    max-height: 800px;
     margin: auto;
   }
 }
@@ -106,6 +108,9 @@
   -ms-flex-line-pack: center;
   align-content: center;
   padding: 1.5rem 2rem;
+
+  /* new styles */
+  flex-direction: column;
 }
 
 .top-card .period ul li button {
@@ -126,7 +131,7 @@
   transition: all 0.2s ease-in;
 }
 
-.top-card .period ul li .clicked {
+.top-card .period ul li .active {
   color: white;
   -webkit-transition: color 0.3s ease-in;
   transition: color 0.3s ease-in;
@@ -178,7 +183,7 @@
     justify-content: space-between;
   }
   .top-card .period ul li {
-    margin-right: auto;
+    margin: auto;
   }
 }
 
@@ -191,12 +196,13 @@
 @media screen and (min-width: 1100px) {
   .cards-grid {
     -ms-grid-columns: (minmax(200px, 1fr)) [auto-fill];
-    grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, auto)); */
     width: 100%;
     height: 100%;
     grid-gap: 10px;
     grid-auto-rows: 400px;
-    grid-template-columns: repeat(2, minmax(100px, auto));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1;
   }
 }
 

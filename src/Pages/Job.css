@@ -1,0 +1,10 @@
+.job-page-list-item {
+  border-bottom: 1px dotted;
+  padding-block: 0.4rem;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.job-page-list-item .job-description {
+  align-items: flex-start;
+}

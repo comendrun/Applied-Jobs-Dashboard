@@ -1,5 +1,7 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import comendrun from "../images/image-comendrun.jpg";
+import SearchBar from "./SearchBar";
 
 export default function TopCard(props) {
   return (
@@ -14,31 +16,35 @@ export default function TopCard(props) {
       <div className="period ">
         <ul className="Pale-Blue">
           <li>
-            <button
+            <NavLink to="/Applied-jobs-Dashboard">Home</NavLink>
+
+            {/* <button
               className={props.query === "daily" ? "clicked" : ""}
               name="daily"
               onClick={props.onClick}
             >
               Daily
-            </button>
+            </button> */}
           </li>
           <li>
-            <button
+            {/* <button
               className={props.query === "weekly" ? "clicked" : ""}
               name="weekly"
               onClick={props.onClick}
             >
               Weekly
-            </button>
+            </button> */}
+            <NavLink to="/Applied-jobs-Dashboard/create">Create</NavLink>
           </li>
           <li>
-            <button
+            <SearchBar />
+            {/* <button
               className={props.query === "monthly" ? "clicked" : ""}
               name="monthly"
               onClick={props.onClick}
             >
               Monthly
-            </button>
+            </button> */}
           </li>
         </ul>
       </div>
