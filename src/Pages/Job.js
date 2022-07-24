@@ -1,14 +1,17 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { randomStyle } from "../styles";
 
 import "./Job.css";
 import ButtonMailto from "../components/ButtonMailto";
 import DeleteButton from "../components/DeleteButton";
+import Modal from "../components/Modal";
 
 export default function Job() {
+  const [showModal, setShowModal] = useState(false);
+
   let navigate = useNavigate();
   const { id } = useParams();
   const url = "https://my-job-board-data.herokuapp.com/jobs/" + id;
@@ -85,14 +88,22 @@ export default function Job() {
               <p className="text-sm">Job Description</p>
               <p>{job.jobDescription}</p>
             </li>
-            <li>
-              <DeleteButton id={job.id} />
-            </li>
-            <li>
-              <Link to={`/Applied-Jobs-Dashboard/jobs/edit/${job.id}`}>
+            <div className="flex text-base font-bold gap-5 items-center ">
+              <DeleteButton
+                id={job.id}
+                btnClass="border border-red-400 px-4 py-1 rounded-2xl"
+              />
+              <button onClick={() => setShowModal(!showModal)}>Delete</button>
+
+              {showModal && <Modal />}
+
+              <Link
+                className="border px-4 py-1 rounded-2xl"
+                to={`/Applied-Jobs-Dashboard/jobs/edit/${job.id}`}
+              >
                 Edit Page
               </Link>
-            </li>
+            </div>
           </ul>
         </>
       )}

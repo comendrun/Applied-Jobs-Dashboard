@@ -1,6 +1,6 @@
 import React from "react";
 import threeDots from "../images/icon-ellipsis.svg";
-import "./Card.css";
+import "./CardList.css";
 
 import { randomStyle } from "../styles";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ export default function CardList({ jobs }) {
   if (jobs.length === 0) {
     return (
       <div className="error">
-        Unfortunately, theres no job application to show.
+        Unfortunately, there's no job application to show.
       </div>
     );
   }
