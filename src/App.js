@@ -9,6 +9,7 @@ import Home from "./Pages/Home";
 import Create from "./Pages/Create";
 import Job from "./Pages/Job";
 import EditPage from "./Pages/EditPage";
+import Search from "./Pages/Search/Search";
 
 function App() {
   const [query, setQuery] = useState("weekly");
@@ -25,14 +26,17 @@ function App() {
           <TopCard onClick={periodClickHandler} query={query} />
           <Routes>
             <Route path="/Applied-Jobs-Dashboard/" element={<Home />} />
+
             <Route path="/Applied-Jobs-Dashboard/jobs/:id" element={<Job />} />
+
             <Route
               path="/Applied-Jobs-Dashboard/jobs/edit/:id"
               element={<EditPage />}
             />
 
             <Route path="/Applied-Jobs-Dashboard/create" element={<Create />} />
-            <Route path="/Applied-Jobs-Dashboard/search" />
+
+            <Route path="/Applied-Jobs-Dashboard/search" element={<Search />} />
           </Routes>
         </BrowserRouter>
       </div>

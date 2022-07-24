@@ -10,7 +10,7 @@ export default function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    navigate(`/search?q=${term}`);
+    navigate(`/Applied-Jobs-Dashboard/search?q=${term}`);
   };
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 
-export default function DeleteButton({ id }) {
+export default function DeleteButton({ id, btnClass }) {
   const url = "https://my-job-board-data.herokuapp.com/jobs/" + id;
 
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function DeleteButton({ id }) {
 
   return (
     <button
-      className="text-base text-red-600 font-bold flex justify-end w-full"
+      className={" text-red-600 font-bold  " + btnClass}
       onClick={handleDeleteButton}
     >
       Delete Entry
