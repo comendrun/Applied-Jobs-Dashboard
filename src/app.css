@@ -12,6 +12,7 @@
   min-height: 100vh;
   font-family: "Rubik", sans-serif;
   background-color: #0f1424;
+  overflow: auto;
 }
 
 #root .App {
@@ -26,7 +27,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 2rem;
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 @media (min-width: 1100px) {
@@ -107,6 +108,9 @@
   -ms-flex-line-pack: center;
   align-content: center;
   padding: 1.5rem 2rem;
+
+  /* new styles */
+  flex-direction: column;
 }
 
 .top-card .period ul li button {
@@ -127,7 +131,7 @@
   transition: all 0.2s ease-in;
 }
 
-.top-card .period ul li .clicked {
+.top-card .period ul li .active {
   color: white;
   -webkit-transition: color 0.3s ease-in;
   transition: color 0.3s ease-in;
@@ -179,7 +183,7 @@
     justify-content: space-between;
   }
   .top-card .period ul li {
-    margin-right: auto;
+    margin: auto;
   }
 }
 
@@ -215,7 +219,6 @@
   color: white;
   border-radius: 15px;
   overflow: hidden;
-  
 }
 
 .card .card-header {

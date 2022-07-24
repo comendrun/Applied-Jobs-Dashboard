@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import "./Create.css";
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useFetch } from "../Hooks/useFetch";
+import ReactDatePicker from "react-datepicker";
 
 export default function Create() {
   const [title, setTitle] = useState("");
@@ -25,9 +23,34 @@ export default function Create() {
 
   const [isFinished, setIsFinished] = useState(false);
 
-  const { postData, data, error } = useFetch(
-    "https://my-job-board-data.herokuapp.com/jobs",
-    "POST"
+  const { id } = useParams();
+
+  const { data: currentEntry, isPending } = useFetch(
+    `https://my-job-board-data.herokuapp.com/jobs/${id}`
+  );
+
+  //   !isPending && currentEntry &&
+
+  useEffect(() => {
+    if (!isPending && currentEntry) {
+      setTitle(currentEntry.title);
+      setCompany(currentEntry.company);
+      //   setDate(currentEntry.date);
+      setJobSource(currentEntry.jobSource);
+      setAdLink(currentEntry.adLink);
+      setEmail(currentEntry.email);
+      setContactPerson(currentEntry.contactPerson);
+      setJobLoc(currentEntry.jobLoc);
+      setWorkCondition(currentEntry.workCondition);
+      setNote(currentEntry.note);
+      setStatus(currentEntry.status);
+      setJobDescription(currentEntry.jobDescription);
+    }
+  }, [isPending, currentEntry]);
+
+  const { updateData, data, error } = useFetch(
+    `https://my-job-board-data.herokuapp.com/jobs/${id}`,
+    "PUT"
   );
 
   let navigate = useNavigate();
@@ -43,7 +66,7 @@ export default function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postData({
+    updateData({
       title,
       company,
       date,
@@ -93,7 +116,7 @@ export default function Create() {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           /> */}
-          <DatePicker
+          <ReactDatePicker
             className="date-input flex desktop:block desktop:ml-auto"
             selected={date}
             onChange={(date) => setDate(date)}
@@ -274,7 +297,7 @@ export default function Create() {
         </label>
 
         <button className="border-2 py-2 px-5 w-max mx-auto bg-white hover:text-white hover:bg-transparent duration-150 ease-in rounded">
-          add to database
+          Update this Entry
         </button>
       </form>
       <div className={`finished-message ${!isFinished && "hidden"}`}>

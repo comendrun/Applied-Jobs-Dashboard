@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 import { useEffect } from "react";
 
@@ -6,6 +6,7 @@ import { randomStyle } from "../styles";
 
 import "./Job.css";
 import ButtonMailto from "../components/ButtonMailto";
+import DeleteButton from "../components/DeleteButton";
 
 export default function Job() {
   let navigate = useNavigate();
@@ -83,6 +84,14 @@ export default function Job() {
             <li className="job-page-list-item job-description flex flex-col text-justify m-0 items-start gap-2  justify-start">
               <p className="text-sm">Job Description</p>
               <p>{job.jobDescription}</p>
+            </li>
+            <li>
+              <DeleteButton id={job.id} />
+            </li>
+            <li>
+              <Link to={`/Applied-Jobs-Dashboard/jobs/edit/${job.id}`}>
+                Edit Page
+              </Link>
             </li>
           </ul>
         </>

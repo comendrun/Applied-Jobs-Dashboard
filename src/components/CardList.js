@@ -18,7 +18,7 @@ export default function CardList({ jobs }) {
     <>
       {jobs.map((job) => {
         return (
-          <div className="card" style={randomStyle().card}>
+          <div key={job.id} className="card" style={randomStyle().card}>
             <div
               className="card-header flex px-4"
               style={randomStyle().cardHeader}

@@ -8,6 +8,7 @@ import { BrowserRouter, Link, NavLink, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Create from "./Pages/Create";
 import Job from "./Pages/Job";
+import EditPage from "./Pages/EditPage";
 
 function App() {
   const [query, setQuery] = useState("weekly");
@@ -25,6 +26,11 @@ function App() {
           <Routes>
             <Route path="/Applied-Jobs-Dashboard/" element={<Home />} />
             <Route path="/Applied-Jobs-Dashboard/jobs/:id" element={<Job />} />
+            <Route
+              path="/Applied-Jobs-Dashboard/jobs/edit/:id"
+              element={<EditPage />}
+            />
+
             <Route path="/Applied-Jobs-Dashboard/create" element={<Create />} />
             <Route path="/Applied-Jobs-Dashboard/search" />
           </Routes>

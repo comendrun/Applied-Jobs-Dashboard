@@ -16,12 +16,14 @@ export default function SearchBar() {
   return (
     <div className="searchbar">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="search">Search:</label>
+        {/* <label htmlFor="search">Search:</label> */}
         <input
           type="text"
           id="search"
+          placeholder="Search ..."
           onChange={(e) => setTerm(e.target.value)}
           required
+          className="p-2 rounded"
         />
       </form>
     </div>
