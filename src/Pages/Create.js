@@ -9,6 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 import { useFetch } from "../Hooks/useFetch";
 
+import { randomStyle } from "../styles";
+
+import { BounceLoader } from "react-spinners";
+
 export default function Create() {
   const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
@@ -94,7 +98,7 @@ export default function Create() {
             onChange={(e) => setDate(e.target.value)}
           /> */}
           <DatePicker
-            className="date-input flex desktop:block desktop:ml-auto"
+            className="date-input flex desktop:block m-auto desktop:m-0 desktop:ml-auto"
             selected={date}
             onChange={(date) => setDate(date)}
             dateFormat="dd/MM/yyy"
@@ -273,17 +277,27 @@ export default function Create() {
           />
         </label>
 
+        <div
+          style={randomStyle().card}
+          className={`finished-message flex border-2 border-white mt-2 rounded ${
+            !isFinished && "hidden"
+          }`}
+        >
+          <p className="text-white text-center p-2  ">
+            Your entry was added to your database. you can access it on your
+            homepage.
+          </p>
+        </div>
+
         <button className="border-2 py-2 px-5 w-max mx-auto bg-white hover:text-white hover:bg-transparent duration-150 ease-in rounded">
           add to database
         </button>
       </form>
-      <div className={`finished-message ${!isFinished && "hidden"}`}>
-        <p className="green">
-          Your Recipe was added to your database. you can access it on your
-          homepage.
-        </p>
-        <p className="blue">We are redirecting you to your homepage now ...</p>
-      </div>
+      {isFinished && (
+        <div className="pending-message-home-page fixed top-[50%] left-[50%] desktop:left-[65%] -translate-x-[50%] -translate-y-[50%] p-[50px] z-[1000]">
+          <BounceLoader color="white" size={72} loading />
+        </div>
+      )}
     </div>
   );
 }

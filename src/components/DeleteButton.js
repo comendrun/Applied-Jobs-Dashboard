@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 
 export default function DeleteButton({ id, btnClass }) {
+  const [isDeleted, setIsDeleted] = useState(false);
+
   const url = "https://my-job-board-data.herokuapp.com/jobs/" + id;
 
   const navigate = useNavigate();
 
   function handleDeleteButton() {
-    console.log(url);
+    setIsDeleted(true);
+
     fetch(url, {
       method: "DELETE",
     })
@@ -17,15 +20,19 @@ export default function DeleteButton({ id, btnClass }) {
 
     setTimeout(() => {
       navigate("/Applied-jobs-Dashboard");
+      setIsDeleted(false);
     }, 3000);
   }
 
   return (
     <button
-      className={" text-red-600 font-bold  " + btnClass}
+      className={
+        " text-red-600 font-bold hover:bg-red-600 hover:text-white duration-200 ease-in  " +
+        btnClass
+      }
       onClick={handleDeleteButton}
     >
-      Delete Entry
+      {isDeleted ? "Your entry deleted from database" : "Delete Entry"}
     </button>
   );
 }

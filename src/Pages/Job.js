@@ -2,6 +2,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 import { useEffect, useState } from "react";
 
+import { BounceLoader } from "react-spinners";
+
 import { randomStyle } from "../styles";
 
 import "./Job.css";
@@ -18,27 +20,31 @@ export default function Job() {
 
   const { data: job, error, isPending } = useFetch(url);
 
-  //   useEffect(() => {
-  //     if (error) {
-  //       setTimeout(() => {
-  //         navigate("/Applied-Jobs-Dashboard");
-  //       }, 3000);
-  //     }
-  //   }, [error, navigate]);
+  const jobContainerStyles = {
+    background: `linear-gradient(to bottom, ${
+      randomStyle().card.backgroundColor
+    } 12%, #0f1424 12%)`,
+  };
 
   return (
-    <div className="job-container desktop:min-w-[25rem] max-w-[1000px] px-10 py-5 w-[100%] desktop:h-full  flex flex-col text-white ">
-      {isPending && <div className="pending-message-job-page">Loading...</div>}
-      {error && <div className="error-message-job-page">{error}</div>}
+    <div
+      className="job-container desktop:min-w-[25rem] max-w-[1000px] py-5 w-[100%] desktop:h-full  flex flex-col text-white rounded-2xl"
+      style={job && jobContainerStyles}
+    >
+      {isPending && (
+        <div className="pending-message-job-page fixed top-[50%] left-[50%] desktop:left-[65%] -translate-x-[50%] -translate-y-[50%] p-[50px] z-[1000]">
+          <BounceLoader color="white" size={72} loading />
+        </div>
+      )}
+      {error && (
+        <div className="error-message-job-page text-white">{error}</div>
+      )}
 
       {job && (
         <>
           <ul className="flex flex-col gap-4 overflow-auto px-2">
             <li>
-              <h2
-                style={randomStyle().card}
-                className="text-xl font-bold capitalize mb-2 border-2 p-2 rounded text-center"
-              >
+              <h2 className="text-xl font-bold capitalize mb-2 p-2 rounded text-center">
                 {job.title}
               </h2>
             </li>
@@ -89,16 +95,28 @@ export default function Job() {
               <p>{job.jobDescription}</p>
             </li>
             <div className="flex text-base font-bold gap-5 items-center ">
-              <DeleteButton
-                id={job.id}
-                btnClass="border border-red-400 px-4 py-1 rounded-2xl"
-              />
-              <button onClick={() => setShowModal(!showModal)}>Delete</button>
+              <button
+                className="border px-4 py-1 rounded-2xl hover:bg-red-500  duration-100 ease-in"
+                onClick={() => setShowModal(true)}
+              >
+                Delete this entry
+              </button>
 
-              {showModal && <Modal />}
+              <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+                <div className="text-center flex flex-col gap-2 ">
+                  <p className="text-xl font-bold  p-4">
+                    {" "}
+                    Are you sure you want to delete this entry?
+                  </p>
+                  <DeleteButton
+                    id={job.id}
+                    btnClass="border border-red-400 px-4 py-1 rounded-2xl"
+                  />
+                </div>
+              </Modal>
 
               <Link
-                className="border px-4 py-1 rounded-2xl"
+                className="border px-4 py-1 rounded-2xl hover:bg-white hover:text-[#0f1424] duration-100 ease-in"
                 to={`/Applied-Jobs-Dashboard/jobs/edit/${job.id}`}
               >
                 Edit Page
