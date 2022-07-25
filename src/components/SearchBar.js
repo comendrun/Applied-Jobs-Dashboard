@@ -17,7 +17,7 @@ export default function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    navigate(`/Applied-Jobs-Dashboard/search?q=${searchTerm}`);
+    navigate(`/applied-jobs-dashboard/search?q=${searchTerm}`);
   };
 
   return (

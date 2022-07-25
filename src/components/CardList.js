@@ -69,7 +69,7 @@ export default function CardList({ jobs }) {
                     </p>
                     <Link
                       className="text-base font-bold text-blue-500 hover:text-white duration-200 ease-in flex justify-end pr-2"
-                      to={`/Applied-Jobs-Dashboard/jobs/${job.id}`}
+                      to={`/applied-jobs-dashboard/jobs/${job.id}`}
                     >
                       More Details
                     </Link>

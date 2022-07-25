@@ -24,18 +24,18 @@ function App() {
         <BrowserRouter>
           <TopCard onClick={periodClickHandler} query={query} />
           <Routes>
-            <Route path="/Applied-Jobs-Dashboard/" element={<Home />} />
+            <Route path="/applied-jobs-dashboard/" element={<Home />} />
 
-            <Route path="/Applied-Jobs-Dashboard/jobs/:id" element={<Job />} />
+            <Route path="/applied-jobs-dashboard/jobs/:id" element={<Job />} />
 
             <Route
-              path="/Applied-Jobs-Dashboard/jobs/edit/:id"
+              path="/applied-jobs-dashboard/jobs/edit/:id"
               element={<EditPage />}
             />
 
-            <Route path="/Applied-Jobs-Dashboard/create" element={<Create />} />
+            <Route path="/applied-jobs-dashboard/create" element={<Create />} />
 
-            <Route path="/Applied-Jobs-Dashboard/search" element={<Search />} />
+            <Route path="/applied-jobs-dashboard/search" element={<Search />} />
           </Routes>
         </BrowserRouter>
       </div>

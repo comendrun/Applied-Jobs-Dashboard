@@ -19,7 +19,7 @@ export default function DeleteButton({ id, btnClass }) {
       .then((res) => console.log(res));
 
     setTimeout(() => {
-      navigate("/Applied-jobs-Dashboard");
+      navigate("/applied-jobs-dashboard/");
       setIsDeleted(false);
     }, 3000);
   }

@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Github URL: [Github Repo](https://github.com/comendrun/Applied-Jobs-Dashboard)
-- Live Site URL: [live site](https://comendrun.com/Applied-Jobs-Dashboard/)
+- Github URL: [Github Repo](https://github.com/comendrun/applied-jobs-dashboard)
+- Live Site URL: [live site](https://comendrun.com/applied-jobs-dashboard/)
 
 ## My process
 

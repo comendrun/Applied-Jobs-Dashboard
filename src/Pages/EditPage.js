@@ -63,7 +63,7 @@ export default function Create() {
     if (data) {
       setIsFinished(true);
       setTimeout(() => {
-        navigate("/Applied-Jobs-Dashboard").then(setIsFinished(false));
+        navigate("/applied-jobs-dashboard").then(setIsFinished(false));
       }, 3000);
     }
   }, [data, navigate]);

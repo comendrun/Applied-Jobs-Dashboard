@@ -117,7 +117,7 @@ export default function Job() {
 
               <Link
                 className="border px-4 py-1 rounded-2xl hover:bg-white hover:text-[#0f1424] duration-100 ease-in"
-                to={`/Applied-Jobs-Dashboard/jobs/edit/${job.id}`}
+                to={`/applied-jobs-dashboard/jobs/edit/${job.id}`}
               >
                 Edit Page
               </Link>
