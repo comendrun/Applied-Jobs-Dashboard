@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import TopCard from "./components/TopCard";
 
-import { nanoid } from "nanoid";
 import "./app.css";
-import { BrowserRouter, Link, NavLink, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home";
 import Create from "./Pages/Create";

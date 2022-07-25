@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github Repo](https://github.com/comendrun/Time-Tracking-Dashboard)
-- Live Site URL: [live site](https://comendrun.github.io/Time-Tracking-Dashboard/)
+- Github URL: [Github Repo](https://github.com/comendrun/Applied-Jobs-Dashboard)
+- Live Site URL: [live site](https://comendrun.com/Applied-Jobs-Dashboard/)
 
 ## My process
 
@@ -39,32 +39,42 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
-- SASS
+- TailwindCSS
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 - ReactJS
+- react-spinner library
 
 ### What I learned
 
 this challenge was a good way to practice SASS and SCSS and also I learned about its limitations. still, by now, I prefer CSS and its custom properties more.
 also, it was good practice for my CSS grid knowledge, and watched a couple of videos about it.
 
+#### How to make background-color to take a specific percent of the container:
+
+I used this method by justisb from [stackoverflow](https://stackoverflow.com/questions/8541081/css-set-a-background-color-which-is-50-of-the-width-of-the-window) that helped me to make my Job page background-color to take up a specific percentage of the container with the help of gradients.
+
 ### Continued development
 
-I hope I can write a more concise and also shorter code for this kind of application, it's not that hard, and also it was tricky because I tried to DRY as much as I can but in the end, I could do what I wanted to. for example i don't know yet how to replace an addressed directory of an array with our state
+<!-- I hope I can write a more concise and also shorter code for this kind of application, it's not that hard, and also it was tricky because I tried to DRY as much as I can but in the end, I could do what I wanted to. for example i don't know yet how to replace an addressed directory of an array with our state
 
 ```js
 const directory = data.timeframes.daily.current;
 ```
 
-for example, I wanted to change the directory when our state changes and just replace "daily" with our new state. but I wasn't able to do that yet. hopefully ill find another way around it.
+for example, I wanted to change the directory when our state changes and just replace "daily" with our new state. but I wasn't able to do that yet. hopefully ill find another way around it. -->
 
 ### Useful resources
 
-- [CSS Grid - Kevin Powell](https://www.youtube.com/watch?v=rg7Fvvl3taU&t=539s)
-- [SASS-NetNinja](https://www.youtube.com/watch?v=_kqN4hl9bGc&list=PL4cUxeGkcC9jxJX7vojNVK-o8ubDZEcNb)
-- [SASS-Dev Ed](https://www.youtube.com/watch?v=Zz6eOVaaelI)
+- [mockaroo](https://www.mockaroo.com/)
+  Great website to generate fake data
+
+- [Web Dev Simplified](https://www.youtube.com/watch?v=LyLa7dU5tp8&t=547s)
+  wonderful tutorial how to make react portals.
+
+  -[Codevolution](https://www.youtube.com/watch?v=T0i0zHyryrs)
+  a youtube tutorial to add loading state using react-spinners library.
 
 ## Author
 

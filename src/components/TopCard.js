@@ -14,37 +14,15 @@ export default function TopCard(props) {
         </div>
       </div>
       <div className="period ">
-        <ul className="Pale-Blue">
+        <ul className="Pale-Blue desktop:gap-2">
           <li>
             <NavLink to="/Applied-jobs-Dashboard">Home</NavLink>
-
-            {/* <button
-              className={props.query === "daily" ? "clicked" : ""}
-              name="daily"
-              onClick={props.onClick}
-            >
-              Daily
-            </button> */}
           </li>
           <li>
-            {/* <button
-              className={props.query === "weekly" ? "clicked" : ""}
-              name="weekly"
-              onClick={props.onClick}
-            >
-              Weekly
-            </button> */}
             <NavLink to="/Applied-jobs-Dashboard/create">Create</NavLink>
           </li>
           <li>
             <SearchBar />
-            {/* <button
-              className={props.query === "monthly" ? "clicked" : ""}
-              name="monthly"
-              onClick={props.onClick}
-            >
-              Monthly
-            </button> */}
           </li>
         </ul>
       </div>
