@@ -185,8 +185,9 @@ export default function Create() {
         <label className="radio-inputs-label flex gap-5 flex-col desktop:flex-row items-start">
           <span className="mr-2">Is Remote option possible?</span>
           <div
-            className="flex gap-1 w-full items-center flex-wrap justify-between "
+            className="flex gap-4 w-full items-center justify-center text-xs desktop:text-base "
             onChange={(e) => setWorkCondition(e.target.value)}
+            name="workCondition"
           >
             <label className="">
               Remote{" "}
