@@ -21,7 +21,7 @@ export default function Search() {
     <div className="cards-grid overflow-auto desktop:p-4 ">
       {isPending && (
         <div>
-          <div className="w-96 h-full ease-in duration-200"></div>
+          <div className="w-96 h-full "></div>
           <div className="pending-message-home-page fixed top-[50%] left-[50%] desktop:left-[65%] -translate-x-[50%] -translate-y-[50%] p-[50px] z-[1000]">
             <BounceLoader color="white" size={72} loading />
           </div>

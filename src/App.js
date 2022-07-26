@@ -9,6 +9,7 @@ import Create from "./Pages/Create";
 import Job from "./Pages/Job";
 import EditPage from "./Pages/EditPage";
 import Search from "./Pages/Search/Search";
+import Footer from "./components/Footer";
 
 function App() {
   const [query, setQuery] = useState("weekly");
@@ -39,6 +40,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
+        <Footer />
     </div>
   );
 }

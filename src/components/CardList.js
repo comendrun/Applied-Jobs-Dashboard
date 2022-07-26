@@ -17,17 +17,12 @@ export default function CardList({ jobs }) {
   return (
     <>
       {jobs.map((job) => {
+        const random = randomStyle();
         const date = job.date;
         const shownDate = typeof date === "string" && date.split("T");
-        {
-          /* console.log(shownDate[0]); */
-        }
         return (
-          <div key={job.id} className="card" style={randomStyle().card}>
-            <div
-              className="card-header flex px-4"
-              style={randomStyle().cardHeader}
-            >
+          <div key={job.id} className="card" style={random.card}>
+            <div className="card-header flex px-4" style={random.cardHeader}>
               <div className="category-placeholder flex flex-row gap-2 items-center w-full">
                 <h2 className="text-lg capitalize"> {job.title}</h2>
                 <img

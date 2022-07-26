@@ -1,0 +1,95 @@
+/* footer */
+footer {
+  background-color: #0f1424;
+  display: flex;
+  height: max-content;
+  padding: 1rem;
+}
+
+.kamran-profile {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* border: 1px solid red; */
+  width: max-content;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  margin-left: auto;
+  /* margin-right: 3rem;
+  margin-bottom: 3rem; */
+  grid-template:
+    "p g a"
+    "l c c"
+    "b c c";
+  /* justify-content: center; */
+  align-items: center;
+
+  transition: all 0.3s ease-in;
+}
+
+.comendrun-img-container {
+  width: 60px;
+  border-radius: 50px;
+  border: 3px solid hsl(174, 86%, 45%);
+  overflow: hidden;
+  cursor: pointer;
+  order: 1;
+  grid-area: c;
+  transition: opacity 0.2s ease-in;
+}
+
+.comendrun-img-container:hover {
+  opacity: 0.8;
+}
+
+.icon-container {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 8px;
+  justify-content: center;
+  /* background-color: rgb(255, 140, 102); */
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons {
+  width: 25px;
+  height: 20px;
+  color: white;
+  margin: auto;
+}
+
+.icon-container:hover {
+  transform: scale(1.05);
+}
+
+.icon-container * {
+  color: white;
+}
+
+.github {
+  grid-area: g;
+}
+
+.linkedin {
+  grid-area: p;
+}
+.personal {
+  grid-area: l;
+}
+
+.hidden-icon {
+  /* height: 0;
+    width: 0;
+    padding: 0;
+    transition: all 0.3s ease; */
+
+  /* color: transparent;
+    background-color: transparent; */
+
+  /* visibility: hidden; */
+  opacity: 0;
+}
