@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/applied-jobs-dashboard/static/css/main.e7224011.css",
-    "main.js": "/applied-jobs-dashboard/static/js/main.89766a27.js",
+    "main.js": "/applied-jobs-dashboard/static/js/main.23a9edb0.js",
     "static/media/image-comendrun.jpg": "/applied-jobs-dashboard/static/media/image-comendrun.c3f81c413249db7c5aeb.jpg",
     "static/media/icon-exercise.svg": "/applied-jobs-dashboard/static/media/icon-exercise.3e7b028289414a13231843557ae074f7.svg",
     "static/media/icon-social.svg": "/applied-jobs-dashboard/static/media/icon-social.64be0c18d185740e487b8efaebb31183.svg",
@@ -12,10 +12,10 @@
     "static/media/icon-self-care.svg": "/applied-jobs-dashboard/static/media/icon-self-care.a161aff589038fc7ce09296497d4cd62.svg",
     "static/media/icon-ellipsis.svg": "/applied-jobs-dashboard/static/media/icon-ellipsis.a57a4ac863593bb69d31b4399823f745.svg",
     "main.e7224011.css.map": "/applied-jobs-dashboard/static/css/main.e7224011.css.map",
-    "main.89766a27.js.map": "/applied-jobs-dashboard/static/js/main.89766a27.js.map"
+    "main.23a9edb0.js.map": "/applied-jobs-dashboard/static/js/main.23a9edb0.js.map"
   },
   "entrypoints": [
     "static/css/main.e7224011.css",
-    "static/js/main.89766a27.js"
+    "static/js/main.23a9edb0.js"
   ]
 }
