@@ -17,6 +17,11 @@ export default function CardList({ jobs }) {
   return (
     <>
       {jobs.map((job) => {
+        const date = job.date;
+        const shownDate = typeof date === "string" && date.split("T");
+        {
+          /* console.log(shownDate[0]); */
+        }
         return (
           <div key={job.id} className="card" style={randomStyle().card}>
             <div
@@ -33,12 +38,12 @@ export default function CardList({ jobs }) {
               </div>
             </div>
             <div className="body">
-              <div className="job-info overflow-auto flex flex-col  text-sm font-light ">
+              <div className="job-info overflow-auto flex flex-col  text-sm font-light desktop:pr-2 ">
                 <div className="flex flex-col gap-3">
                   <ul className="flex flex-col gap-2">
                     <li className="job-details flex items-center justify-between pr-1">
                       <p className="text-sm">Date (Applied):</p>
-                      <p className="text-base"> {job.date} </p>
+                      <p className="text-base"> {job.date && shownDate[0]} </p>
                     </li>
 
                     <li className="job-details flex items-center justify-between pr-1">

@@ -32,8 +32,11 @@ export default function Job() {
       style={job && jobContainerStyles}
     >
       {isPending && (
-        <div className="pending-message-job-page fixed top-[50%] left-[50%] desktop:left-[65%] -translate-x-[50%] -translate-y-[50%] p-[50px] z-[1000]">
-          <BounceLoader color="white" size={72} loading />
+        <div>
+          <div className="w-96 h-full ease-in duration-200"></div>
+          <div className="pending-message-home-page fixed top-[50%] left-[50%] desktop:left-[65%] -translate-x-[50%] -translate-y-[50%] p-[50px] z-[1000]">
+            <BounceLoader color="white" size={72} loading />
+          </div>
         </div>
       )}
       {error && (

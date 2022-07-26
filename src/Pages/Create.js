@@ -16,7 +16,7 @@ import { BounceLoader } from "react-spinners";
 export default function Create() {
   const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
   const [jobSource, setJobSource] = useState("");
   const [adLink, setAdLink] = useState("");
   const [email, setEmail] = useState("");
@@ -90,19 +90,13 @@ export default function Create() {
 
         <label className=" flex justify-between ">
           <span className="mr-2">Date</span>
-          {/* <input
-            required
-            placeholder="Enter date of application"
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          /> */}
           <DatePicker
             className="date-input flex desktop:block m-auto desktop:m-0 desktop:ml-auto"
             selected={date}
             onChange={(date) => setDate(date)}
             dateFormat="dd/MM/yyy"
             placeholderText="dd/mm/yyyy"
+            closeOnScroll={true}
           />
         </label>
 

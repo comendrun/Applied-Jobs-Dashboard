@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 export default function TopCard(props) {
   return (
-    <div className="top-card">
+    <div className="top-card ease-in duration-200">
       <div className="top-card-header">
         <img className="comendrun" alt="" src={comendrun} />
         <div className="top-card-header-user-info">

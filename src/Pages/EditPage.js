@@ -14,7 +14,7 @@ import { randomStyle } from "../styles";
 export default function Create() {
   const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
   const [jobSource, setJobSource] = useState("");
   const [adLink, setAdLink] = useState("");
   const [email, setEmail] = useState("");
@@ -126,6 +126,7 @@ export default function Create() {
             onChange={(date) => setDate(date)}
             dateFormat="dd/MM/yyy"
             placeholderText="dd/mm/yyyy"
+            closeOnScroll={true}
           />
         </label>
 

@@ -15,6 +15,25 @@
   overflow: auto;
 }
 
+/* custom scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
 #root .App {
   width: 90%;
   max-width: 600px;
@@ -184,130 +203,5 @@
   }
   .top-card .period ul li {
     margin: auto;
-  }
-}
-
-.cards-grid {
-  display: -ms-grid;
-  display: grid;
-  gap: 2rem;
-}
-
-@media screen and (min-width: 1100px) {
-  .cards-grid {
-    -ms-grid-columns: (minmax(200px, 1fr)) [auto-fill];
-    /* grid-template-columns: repeat(auto-fit, minmax(100px, auto)); */
-    width: 100%;
-    height: 100%;
-    grid-gap: 10px;
-    grid-auto-rows: 400px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 1;
-  }
-}
-
-.card {
-  width: 100%;
-  height: 400px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  color: white;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.card .card-header {
-  height: 25%;
-}
-
-.card .body {
-  font-family: "Roboto", sans-serif;
-  height: 75%;
-  border-radius: 15px;
-  background: #1c1f4a;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  /* gap: 1rem; */
-  padding-inline: 2rem;
-  -webkit-transition: opacity 0.3s ease-in;
-  transition: opacity 0.3s ease-in;
-}
-
-.card .body:hover {
-  opacity: 0.8;
-  -webkit-transition: opacity 0.3s ease-in;
-  transition: opacity 0.3s ease-in;
-}
-
-.card .body .flex-col {
-  /* display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; */
-}
-
-.card .body .category-placeholder h2 {
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-
-.card .body .category-placeholder .more {
-  cursor: pointer;
-  padding: 1rem;
-  margin: -1rem;
-}
-
-.card .body .hours-placeholder h1 {
-  font-weight: 300;
-}
-
-.card .body .hours-placeholder p {
-  color: #bdc1ff;
-}
-
-@media screen and (min-width: 1100px) {
-  .card {
-    height: 100%;
-  }
-  .card .card-header {
-    height: 20%;
-  }
-  .card .body {
-    height: 80%;
-    padding-block: 2rem;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-  }
-  .card .hours-placeholder {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .card .hours-placeholder h1,
-  .card .hours-placeholder p {
-    margin-right: auto;
-  }
-  .card .hours-placeholder h1 {
-    font-size: 3rem;
   }
 }
