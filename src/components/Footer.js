@@ -30,7 +30,7 @@ export default function Footer() {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.linkedin.com/in/comendrun/"
+          href="https://comendrun.com/"
           className="text-white"
         >
           <i className="fa-solid fa-globe icons"></i>
