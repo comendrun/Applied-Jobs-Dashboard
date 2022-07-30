@@ -5,6 +5,8 @@ import "./CardList.css";
 import { randomStyle } from "../styles";
 import { Link } from "react-router-dom";
 import ThreeDotMenu from "./ThreeDotMenu";
+import { useFetch } from "../Hooks/useFetch";
+import UpdateButton from "./UpdateButton";
 
 export default function CardList({ jobs }) {
   if (jobs.length === 0) {
@@ -21,6 +23,7 @@ export default function CardList({ jobs }) {
         const random = randomStyle();
         const date = job.date;
         const shownDate = typeof date === "string" && date.split("T");
+
         return (
           <div key={job.id} className="card" style={random.card}>
             <div className="card-header flex px-4" style={random.cardHeader}>
@@ -30,7 +33,10 @@ export default function CardList({ jobs }) {
                 </Link>
 
                 {/* menu ==> */}
-                <ThreeDotMenu selectedItemId={job.id} />
+                <ThreeDotMenu
+                  previousData={job.title}
+                  selectedItemId={job.id}
+                />
                 {/* <== menu */}
               </div>
             </div>

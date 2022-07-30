@@ -26,6 +26,16 @@ export const useFetch = (url, method = "GET") => {
     });
   };
 
+  const patchRequest = (patchRequest) => {
+    setOptions({
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(patchRequest),
+    });
+  };
+
   useEffect(() => {
     const controller = new AbortController();
 
@@ -58,11 +68,12 @@ export const useFetch = (url, method = "GET") => {
     if (method === "GET") fetchData();
     if (method === "POST" && options) fetchData(options);
     if (method === "PUT" && options) fetchData(options);
+    if (method === "PATCH" && options) fetchData(options);
 
     return () => {
       controller.abort();
     };
   }, [url, options, method]);
 
-  return { data, isPending, error, postData, updateData };
+  return { data, isPending, error, postData, updateData, patchRequest };
 };

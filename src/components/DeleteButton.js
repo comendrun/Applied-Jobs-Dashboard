@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFetch } from "../Hooks/useFetch";
 
 export default function DeleteButton({ id, btnClass, isInMenu }) {
   const [isDeleted, setIsDeleted] = useState(false);
