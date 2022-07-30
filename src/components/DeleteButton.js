@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 
-export default function DeleteButton({ id, btnClass }) {
+export default function DeleteButton({ id, btnClass, isInMenu }) {
   const [isDeleted, setIsDeleted] = useState(false);
 
   const url = "https://my-job-board-data.herokuapp.com/jobs/" + id;
@@ -19,6 +19,11 @@ export default function DeleteButton({ id, btnClass }) {
       .then((res) => console.log(res));
 
     setTimeout(() => {
+      if (isInMenu) {
+        setIsDeleted(false);
+        navigate(0);
+        return;
+      }
       navigate("/applied-jobs-dashboard/");
       setIsDeleted(false);
     }, 3000);
@@ -32,7 +37,7 @@ export default function DeleteButton({ id, btnClass }) {
       }
       onClick={handleDeleteButton}
     >
-      {isDeleted ? "Your entry deleted from database" : "Delete Entry"}
+      {isDeleted ? "Your entry deleted from database" : "Delete anyway"}
     </button>
   );
 }
