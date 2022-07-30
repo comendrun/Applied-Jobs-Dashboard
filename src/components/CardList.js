@@ -4,6 +4,7 @@ import "./CardList.css";
 
 import { randomStyle } from "../styles";
 import { Link } from "react-router-dom";
+import ThreeDotMenu from "./ThreeDotMenu";
 
 export default function CardList({ jobs }) {
   if (jobs.length === 0) {
@@ -23,13 +24,14 @@ export default function CardList({ jobs }) {
         return (
           <div key={job.id} className="card" style={random.card}>
             <div className="card-header flex px-4" style={random.cardHeader}>
-              <div className="category-placeholder flex flex-row gap-2 items-center w-full">
-                <h2 className="text-lg capitalize"> {job.title}</h2>
-                <img
-                  alt=""
-                  src={threeDots}
-                  className="more cursor-pointer opacity-100 hover:opacity-70 duration-150 ease-in"
-                />
+              <div className="category-placeholder flex flex-row gap-4 items-center w-full">
+                <Link to={`/applied-jobs-dashboard/jobs/${job.id}`}>
+                  <h2 className="text-lg capitalize"> {job.title}</h2>
+                </Link>
+
+                {/* menu ==> */}
+                <ThreeDotMenu selectedItemId={job.id} />
+                {/* <== menu */}
               </div>
             </div>
             <div className="body">
