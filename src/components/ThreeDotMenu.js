@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import threeDots from "../images/icon-ellipsis.svg";
 import DeleteButton from "./DeleteButton";
 import Modal from "./Modal";
+
 import UpdateButton from "./UpdateButton";
 
 export default function ThreeDotMenu({ selectedItemId, previousData }) {
@@ -9,7 +10,6 @@ export default function ThreeDotMenu({ selectedItemId, previousData }) {
   const [showModalDeleteButton, setShowModalDeleteButton] = useState(false);
   const [showModalUpdateButton, setShowModalUpdateButton] = useState(false);
 
-  //   console.log(showModalUpdateButton);
 
   return (
     <>
@@ -29,6 +29,7 @@ export default function ThreeDotMenu({ selectedItemId, previousData }) {
 
           <ul className="text-black m-auto text-center relative top-14 right-10 w-[10rem] min-h-[5rem] bg-white p-5 rounded-xl z-[100] text-sm">
             <li className="text-base font-bold hover:opacity-75 cursor-pointer">
+
               <button onClick={() => setShowModalUpdateButton(true)}>
                 Edit title
               </button>
@@ -38,11 +39,13 @@ export default function ThreeDotMenu({ selectedItemId, previousData }) {
               <button
                 className="py-1 rounded-2xl   duration-100 ease-in"
                 onClick={() => setShowModalDeleteButton(true)}
+
               >
                 Delete this entry
               </button>
             </li>
           </ul>
+
           <Modal
             isOpen={showModalUpdateButton}
             onClose={() => setShowModalUpdateButton(false)}
@@ -54,6 +57,7 @@ export default function ThreeDotMenu({ selectedItemId, previousData }) {
             isOpen={showModalDeleteButton}
             onClose={() => setShowModalDeleteButton(false)}
           >
+
             <div className="text-center flex flex-col gap-2 ">
               <p className="text-xl font-bold  p-4">
                 {" "}
