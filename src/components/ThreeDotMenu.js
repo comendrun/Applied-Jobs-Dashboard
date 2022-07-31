@@ -3,9 +3,13 @@ import threeDots from "../images/icon-ellipsis.svg";
 import DeleteButton from "./DeleteButton";
 import Modal from "./Modal";
 
-export default function ThreeDotMenu({ selectedItemId }) {
+import UpdateButton from "./UpdateButton";
+
+export default function ThreeDotMenu({ selectedItemId, previousData }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showModalDeleteButton, setShowModalDeleteButton] = useState(false);
+  const [showModalUpdateButton, setShowModalUpdateButton] = useState(false);
+
 
   return (
     <>
@@ -25,18 +29,35 @@ export default function ThreeDotMenu({ selectedItemId }) {
 
           <ul className="text-black m-auto text-center relative top-14 right-10 w-[10rem] min-h-[5rem] bg-white p-5 rounded-xl z-[100] text-sm">
             <li className="text-base font-bold hover:opacity-75 cursor-pointer">
-              Edit title
+
+              <button onClick={() => setShowModalUpdateButton(true)}>
+                Edit title
+              </button>
             </li>
+
             <li className=" font-bold hover:opacity-75 cursor-pointer text-red-500 ">
               <button
                 className="py-1 rounded-2xl   duration-100 ease-in"
-                onClick={() => setShowModal(true)}
+                onClick={() => setShowModalDeleteButton(true)}
+
               >
                 Delete this entry
               </button>
             </li>
           </ul>
-          <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+
+          <Modal
+            isOpen={showModalUpdateButton}
+            onClose={() => setShowModalUpdateButton(false)}
+          >
+            <UpdateButton previousData={previousData} id={selectedItemId} />
+          </Modal>
+
+          <Modal
+            isOpen={showModalDeleteButton}
+            onClose={() => setShowModalDeleteButton(false)}
+          >
+
             <div className="text-center flex flex-col gap-2 ">
               <p className="text-xl font-bold  p-4">
                 {" "}
