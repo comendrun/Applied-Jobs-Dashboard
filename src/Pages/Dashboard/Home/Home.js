@@ -1,24 +1,16 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-import CardList from "../../components/CardList";
-import "../../components/CardList.css";
-
-import { useFetch } from "../../Hooks/useFetch";
-
+import CardList from "../components/CardList/CardList";
+import { useFetch } from "../../../Hooks/useFetch";
 import { BounceLoader } from "react-spinners";
 
-export default function Search() {
-  const queryString = useLocation();
-  const queryParams = new URLSearchParams(queryString.search);
-  const query = queryParams.get("q");
-
-  const url = "https://my-job-board-data.herokuapp.com/jobs?q=" + query;
-
-  const { data, isPending, error } = useFetch(url);
+export default function Home() {
+  const { data, isPending, error } = useFetch(
+    "https://my-job-board-data.herokuapp.com/jobs"
+  );
   // console.log(data);
-
   return (
     <div className="cards-grid overflow-auto desktop:p-4 ">
+      {error && <p className="error">{error}</p>}
       {isPending && (
         <div>
           <div className="w-96 h-full "></div>
@@ -27,7 +19,6 @@ export default function Search() {
           </div>
         </div>
       )}
-      {error && <div>{error}</div>}
       {data && <CardList jobs={data} />}
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Footer.css";
 import comendrun from "../images/comendrun2.jpg";
 import { createPortal } from "react-dom";
-import { randomStyle } from "../styles";
+import { randomStyle } from "../../styles";
 
 export default function Footer() {
   const [areLinksShown, setAreLinksShown] = useState(false);

@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import comendrun from "../images/image-comendrun.jpg";
-import SearchBar from "./SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 
-export default function TopCard(props) {
+export default function TopCard() {
   return (
     <div className="top-card ease-in duration-200">
       <div className="top-card-header">

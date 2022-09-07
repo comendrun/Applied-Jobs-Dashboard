@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import "./Create.css";
+import "../Create/Create.css";
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { useNavigate } from "react-router-dom";
-
-import { useFetch } from "../Hooks/useFetch";
-
-import { randomStyle } from "../styles";
+import { useFetch } from "../../../Hooks/useFetch";
+import ReactDatePicker from "react-datepicker";
 
 import { BounceLoader } from "react-spinners";
+
+import { randomStyle } from "../../../styles";
 
 export default function Create() {
   const [title, setTitle] = useState("");
@@ -29,9 +27,34 @@ export default function Create() {
 
   const [isFinished, setIsFinished] = useState(false);
 
-  const { postData, data, error } = useFetch(
-    "https://my-job-board-data.herokuapp.com/jobs",
-    "POST"
+  const { id } = useParams();
+
+  const { data: currentEntry, isPending } = useFetch(
+    `https://my-job-board-data.herokuapp.com/jobs/${id}`
+  );
+
+  //   !isPending && currentEntry &&
+
+  useEffect(() => {
+    if (!isPending && currentEntry) {
+      setTitle(currentEntry.title);
+      setCompany(currentEntry.company);
+      //   setDate(currentEntry.date);
+      setJobSource(currentEntry.jobSource);
+      setAdLink(currentEntry.adLink);
+      setEmail(currentEntry.email);
+      setContactPerson(currentEntry.contactPerson);
+      setJobLoc(currentEntry.jobLoc);
+      setWorkCondition(currentEntry.workCondition);
+      setNote(currentEntry.note);
+      setStatus(currentEntry.status);
+      setJobDescription(currentEntry.jobDescription);
+    }
+  }, [isPending, currentEntry]);
+
+  const { updateData, data, error } = useFetch(
+    `https://my-job-board-data.herokuapp.com/jobs/${id}`,
+    "PUT"
   );
 
   let navigate = useNavigate();
@@ -47,7 +70,7 @@ export default function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postData({
+    updateData({
       title,
       company,
       date,
@@ -90,7 +113,14 @@ export default function Create() {
 
         <label className=" flex justify-between ">
           <span className="mr-2">Date</span>
-          <DatePicker
+          {/* <input
+            required
+            placeholder="Enter date of application"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          /> */}
+          <ReactDatePicker
             className="date-input flex desktop:block m-auto desktop:m-0 desktop:ml-auto"
             selected={date}
             onChange={(date) => setDate(date)}
@@ -154,7 +184,7 @@ export default function Create() {
         </label>
 
         <label className="radio-inputs-label flex gap-5 flex-col desktop:flex-row items-start">
-          <span className="mr-2">Work condition</span>
+          <span className="mr-2">Is Remote option possible?</span>
           <div
             className="flex gap-4 w-full items-center justify-center text-xs desktop:text-base "
             onChange={(e) => setWorkCondition(e.target.value)}
@@ -279,15 +309,16 @@ export default function Create() {
           }`}
         >
           <p className="text-white text-center p-2  ">
-            Your entry was added to your database. you can access it on your
+            Your entry was updated successfully. you can access it on your
             homepage.
           </p>
         </div>
 
         <button className="border-2 py-2 px-5 w-max mx-auto bg-white hover:text-white hover:bg-transparent duration-150 ease-in rounded">
-          add to database
+          Update this Entry
         </button>
       </form>
+
       {isFinished && (
         <div className="pending-message-home-page fixed top-[50%] left-[50%] desktop:left-[65%] -translate-x-[50%] -translate-y-[50%] p-[50px] z-[1000]">
           <BounceLoader color="white" size={72} loading />

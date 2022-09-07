@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFetch } from "../Hooks/useFetch";
+import { useFetch } from "../../Hooks/useFetch";
 
 export default function UpdateButton({ id, previousData }) {
   const [isUpdated, setIsUpdated] = useState(false);

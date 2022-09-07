@@ -5,8 +5,7 @@ import "./CardList.css";
 import { randomStyle } from "../styles";
 import { Link } from "react-router-dom";
 import ThreeDotMenu from "./ThreeDotMenu";
-import { useFetch } from "../Hooks/useFetch";
-import UpdateButton from "./UpdateButton";
+
 
 export default function CardList({ jobs }) {
   if (jobs.length === 0) {
