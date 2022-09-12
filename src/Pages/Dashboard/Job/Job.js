@@ -1,15 +1,15 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useFetch } from "../../Hooks/useFetch";
+import { useFetch } from "../../../hooks/useFetch";
 import { useEffect, useState } from "react";
 
 import { BounceLoader } from "react-spinners";
 
-import { randomStyle } from "../../styles";
+import { randomStyle } from "../../../Styles/styles";
 
 import "./Job.css";
-import ButtonMailto from "../components/Buttons/ButtonMailto";
-import DeleteButton from "../components/Buttons/DeleteButton";
-import Modal from "../components/Modal/Modal";
+import ButtonMailto from "../../../components/Buttons/ButtonMailto";
+import DeleteButton from "../../../components/Buttons/DeleteButton";
+import Modal from "../../../components/Modal/Modal";
 
 export default function Job() {
   const [showModal, setShowModal] = useState(false);

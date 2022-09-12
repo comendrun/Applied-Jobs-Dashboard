@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import comendrun from "../images/image-comendrun.jpg";
+import comendrun from "../../Assets/images/image-comendrun.jpg";
 import SearchBar from "../SearchBar/SearchBar";
 
 export default function TopCard() {

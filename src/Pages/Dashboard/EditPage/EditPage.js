@@ -4,12 +4,12 @@ import "../Create/Create.css";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useFetch } from "../../../Hooks/useFetch";
+import { useFetch } from "../../../hooks/useFetch";
 import ReactDatePicker from "react-datepicker";
 
 import { BounceLoader } from "react-spinners";
 
-import { randomStyle } from "../../../styles";
+import { randomStyle } from "../../../Styles/styles";
 
 export default function Create() {
   const [title, setTitle] = useState("");

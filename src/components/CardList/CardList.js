@@ -1,11 +1,10 @@
 import React from "react";
-import threeDots from "../images/icon-ellipsis.svg";
+
 import "./CardList.css";
 
-import { randomStyle } from "../styles";
+import { randomStyle } from "../../Styles/styles";
 import { Link } from "react-router-dom";
-import ThreeDotMenu from "./ThreeDotMenu";
-
+import ThreeDotMenu from "../Buttons/ThreeDotMenu";
 
 export default function CardList({ jobs }) {
   if (jobs.length === 0) {

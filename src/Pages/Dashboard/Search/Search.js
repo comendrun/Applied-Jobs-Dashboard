@@ -1,9 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import CardList from "../../components/CardList/CardList";
-import "../../components/CardList/CardList.css";
+import CardList from "../../../components/CardList/CardList";
+import "../../../components/CardList/CardList.css";
 
-import { useFetch } from "../../Hooks/useFetch";
+import { useFetch } from "../../../hooks/useFetch";
 
 import { BounceLoader } from "react-spinners";
 

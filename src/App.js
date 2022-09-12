@@ -1,56 +1,41 @@
 import React, { useState, useEffect } from "react";
-import TopCard from "./components/TopCard/TopCard";
 
-import "./app.css";
+import "./Styles/app.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./Pages/Dashboard/Home/Home";
-import Create from "./Pages/Dashboard/Create/Create";
-import Job from "./Pages/Job/Job";
-import EditPage from "./Pages/Dashboard/EditPage/EditPage";
-import Search from "./Pages/Search/Search";
 import Footer from "./components/Footer/Footer";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Error from "./Pages/Error/Error";
+import UserHomePage from "./Pages/Dashboard/UserHomePage/UserHomePage";
+import Home from "./Pages/Home/Home";
+import Job from "./Pages/Dashboard/Job/Job";
 
-// import { db } from "./firebaseConfig";
-// import { collection, getDocs } from "firebase/firestore";
+import Search from "./Pages/Dashboard/Search/Search";
+import EditPage from "./Pages/Dashboard/EditPage/EditPage";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import Create from "./Pages/Dashboard/EditPage/EditPage";
+import Layout from "./Layout/Layout";
 
 function App() {
-  const [jobApps, setJobApps] = useState([]);
-
-  // const appsCollectionRef = collection(db, "Job-Applications");
-
-  // useEffect(() => {
-  //   const getApps = async () => {
-  //     const data = await getDocs(appsCollectionRef);
-  //     setJobApps(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //     console.log(data.docs);
-  //   };
-  //   getApps();
-  // }, []);
-
   return (
-    <div className="app=container flex flex-col min-w-[100vw] min-h-[100vh] ">
-      <div className="App ">
-        <BrowserRouter>
-          <TopCard />
-          <Routes>
-            <Route path="/applied-jobs-dashboard/" element={<Home />} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/applied-jobs-dashboard" element={<Layout />}>
+          <Route index={true} element={<Home />}></Route>
 
-            <Route path="/applied-jobs-dashboard/jobs/:id" element={<Job />} />
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route index={true} element={<UserHomePage />} />
+            <Route index={false} path="jobs/:id" element={<Job />} />
+            <Route index={false} path="jobs/edit/:id" element={<EditPage />} />
+            <Route index={false} path="create" element={<Create />} />
+            <Route index={false} path="search" element={<Search />} />
+          </Route>
 
-            <Route
-              path="/applied-jobs-dashboard/jobs/edit/:id"
-              element={<EditPage />}
-            />
-
-            <Route path="/applied-jobs-dashboard/create" element={<Create />} />
-
-            <Route path="/applied-jobs-dashboard/search" element={<Search />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+          {/* <Route path="*" element={<Error />} /> */}
+        </Route>
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

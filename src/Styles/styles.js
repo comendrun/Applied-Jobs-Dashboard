@@ -1,9 +1,9 @@
-import work from "./images/icon-work.svg";
-import exercise from "./images/icon-exercise.svg";
-import play from "./images/icon-play.svg";
-import study from "./images/icon-study.svg";
-import social from "./images/icon-social.svg";
-import selfCare from "./images/icon-self-care.svg";
+import work from "../Assets/images/icon-work.svg";
+import exercise from "../Assets/images/icon-exercise.svg";
+import play from "../Assets/images/icon-play.svg";
+import study from "../Assets/images/icon-study.svg";
+import social from "../Assets/images/icon-social.svg";
+import selfCare from "../Assets/images/icon-self-care.svg";
 
 export const styles = [
   {

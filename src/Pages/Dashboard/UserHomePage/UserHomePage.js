@@ -1,9 +1,9 @@
 import React from "react";
-import CardList from "../components/CardList/CardList";
-import { useFetch } from "../../../Hooks/useFetch";
+import CardList from "../../../components/CardList/CardList";
+import { useFetch } from "../../../hooks/useFetch";
 import { BounceLoader } from "react-spinners";
 
-export default function Home() {
+export default function UserHomePage() {
   const { data, isPending, error } = useFetch(
     "https://my-job-board-data.herokuapp.com/jobs"
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import threeDots from "../images/icon-ellipsis.svg";
+import threeDots from "../../Assets/images/icon-ellipsis.svg";
 import DeleteButton from "./DeleteButton";
-import Modal from "./Modal";
+import Modal from "../Modal/Modal";
 import UpdateButton from "./UpdateButton";
 
 export default function ThreeDotMenu({ selectedItemId, previousData }) {
