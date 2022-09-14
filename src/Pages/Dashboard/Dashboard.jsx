@@ -4,10 +4,11 @@ import TopCard from "../../components/TopCard/TopCard";
 
 const Dashboard = () => {
   return (
-    <section className="App dashboard  flex flex-col desktop:flex-row gap-8 justify-center align-center border-2 border-white">
-      <h1 className="text-white font-bold text-3xl">Hello world</h1>
+    <section className="App dashboard  flex flex-col desktop:flex-row gap-8 justify-center align-center border-2 border-blue-400">
       <TopCard />
-      <Outlet />
+      <div className=" m-auto w-full h-[100%] flex flex-col overflow-auto ">
+        <Outlet />
+      </div>
     </section>
   );
 };

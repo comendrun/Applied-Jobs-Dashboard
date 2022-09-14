@@ -10,7 +10,7 @@ function Navbar() {
   let user;
 
   let navigationLinks = () => {
-    return !user ? ["Sign In", "Sign up"] : ["Dashboard", "Sign out"];
+    return !user ? ["sign in", "sign up", "dashboard"] : ["Dashboard", "Sign out"];
   };
 
   return (
@@ -19,7 +19,7 @@ function Navbar() {
         className={`navbar fixed top-0 right-0 left-0 z-50 mobile-view laptop:hidden bg-[rgba(0,0,0,0.10)] backdrop-blur-md `}
       >
         <div className="top-section flex p-4 justify-between items-center z-50">
-          <Link to="/applied-jobs-dashboard">Job Applications Dashboard</Link>
+          <Link to="/applied-jobs-dashboard">JAD</Link>
           <img
             src={images.hamburgerIcon}
             alt="hamburger"
@@ -51,7 +51,7 @@ function Navbar() {
                 key={`desktop-${item}-${index}`}
                 className="nav-item-desktop capitalize font-bold cursor-pointer py-3 "
               >
-                <NavLink to={`/applied-jobs-dashboard/${item}`} className="">
+                <NavLink to={`/applied-jobs-dashboard/${item.replace(/\s+/g, '')}`} className="">
                   {item}
                 </NavLink>
               </li>
