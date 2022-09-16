@@ -7,9 +7,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import { useNavigate } from "react-router-dom";
 
-import { useFetch } from "../../../Hooks/useFetch";
+import { useFetch } from "../../../hooks/useFetch";
 
-import { randomStyle } from "../../../styles";
+import { randomStyle } from "../../../Styles/styles";
 
 import { BounceLoader } from "react-spinners";
 
