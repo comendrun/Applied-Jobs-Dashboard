@@ -16,10 +16,10 @@ export default function TopCard() {
       <div className="period ">
         <ul className="Pale-Blue desktop:gap-2">
           <li>
-            <NavLink to="/applied-jobs-dashboard/">Home</NavLink>
+            <NavLink to="/applied-jobs-dashboard/dashboard">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/applied-jobs-dashboard/create">Create</NavLink>
+            <NavLink to="/applied-jobs-dashboard/dashboard/create">Create</NavLink>
           </li>
           <li>
             <SearchBar />
