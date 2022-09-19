@@ -1,4 +1,4 @@
-import { initializeApp } from "htttps://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+import { initializeApp } from "firebase/app";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -14,6 +14,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
   if (user !== null) {
@@ -22,7 +23,5 @@ onAuthStateChanged(auth, (user) => {
     console.log("No user");
   }
 });
-
-export const auth = getAuth(app)
 
 export default app;

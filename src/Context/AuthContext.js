@@ -1,16 +1,47 @@
-import { createContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-const UserContext = createContext()
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
 
+import { auth } from "../firebaseConfig/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
-export const AuthContextProvider = ({children})=>{
-    return (
-        <UserContext.Provider value={}>
-            {children}
-        </UserContext.Provider>
-    )
-}
+const UserContext = createContext();
 
-export const UserAuth = () =>{
-    return UserContext(UserContext)
-}
+export const AuthContextProvider = ({ children }) => {
+  const [user, setUser] = useState({});
+
+  const navigate = useNavigate();
+
+  const createUser = (email, password, displayName) => {
+    return createUserWithEmailAndPassword(auth, email, password, displayName);
+  };
+
+  const logout = () => {
+    return signOut(auth);
+  };
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+      setUser(currentUser);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+
+  return (
+    <UserContext.Provider value={{ createUser, user }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
+
+export const UserAuth = () => {
+  return useContext(UserContext);
+};
