@@ -14,6 +14,8 @@ import social from "../Assets/images/icon-social.svg";
 import study from "../Assets/images/icon-study.svg";
 import work from "../Assets/images/icon-work.svg";
 
+import heroSvg from "../Assets/images/busy-project-manager-overwhelmed-by-work.png";
+
 export default {
   comendrun,
   closeIcon,
@@ -29,4 +31,5 @@ export default {
   social,
   study,
   work,
+  heroSvg,
 };

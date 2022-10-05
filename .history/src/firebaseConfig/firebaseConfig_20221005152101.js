@@ -18,12 +18,10 @@ export const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
   if (user !== null) {
-    console.log("checking if user is signed in: Signed in!");
+    console.log("logged in!");
   } else {
-    console.log("checking if user is signed in: No user");
+    console.log("checking if No user");
   }
 });
-
-export const db = getFirestore(app);
 
 export default app;

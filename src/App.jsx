@@ -20,33 +20,38 @@ import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/Signup.jsx";
 import { AuthContextProvider } from "./Context/AuthContext";
 
+//framer-motion
+import { AnimatePresence } from "framer-motion";
+
 function App() {
   return (
     <BrowserRouter>
-      <AuthContextProvider>
-        <Routes>
-          <Route path="/applied-jobs-dashboard" element={<Layout />}>
-            <Route index={true} element={<Home />} />
-            <Route index={false} path="signin" element={<SignIn />} />
-            <Route index={false} path="signup" element={<SignUp />} />
+      <AnimatePresence>
+        <AuthContextProvider>
+          <Routes>
+            <Route path="/applied-jobs-dashboard" element={<Layout />}>
+              <Route index={true} element={<Home />} />
+              <Route index={false} path="signin" element={<SignIn />} />
+              <Route index={false} path="signup" element={<SignUp />} />
 
-            <Route path="dashboard" element={<Dashboard />}>
-              <Route index={true} element={<UserHomePage />} />
-              <Route index={false} path="jobs/:id" element={<Job />} />
-              <Route
-                index={false}
-                path="jobs/edit/:id"
-                element={<EditPage />}
-              />
-              <Route index={false} path="create" element={<Create />} />
-              <Route index={false} path="search" element={<Search />} />
+              <Route path="dashboard" element={<Dashboard />}>
+                <Route index={true} element={<UserHomePage />} />
+                <Route index={false} path="jobs/:id" element={<Job />} />
+                <Route
+                  index={false}
+                  path="jobs/edit/:id"
+                  element={<EditPage />}
+                />
+                <Route index={false} path="create" element={<Create />} />
+                <Route index={false} path="search" element={<Search />} />
+              </Route>
+
+              <Route path="*" element={<Error />} />
             </Route>
-
-            <Route path="*" element={<Error />} />
-          </Route>
-        </Routes>
-        {/* <Footer /> */}
-      </AuthContextProvider>
+          </Routes>
+          {/* <Footer /> */}
+        </AuthContextProvider>
+      </AnimatePresence>
     </BrowserRouter>
   );
 }

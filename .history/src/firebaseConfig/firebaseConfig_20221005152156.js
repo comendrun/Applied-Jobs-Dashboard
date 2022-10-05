@@ -24,6 +24,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-export const db = getFirestore(app);
+export const db = getFirestore
 
 export default app;
